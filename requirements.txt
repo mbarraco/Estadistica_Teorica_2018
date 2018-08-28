@@ -1,0 +1,4 @@
+scipy
+ipdb
+matplotlib
+plotly
