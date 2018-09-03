@@ -37,6 +37,7 @@ for (i in 1:1000) {
                col=c("purple"),  
                pch=1)  
     }
+        
     #
     # 2) Calcular λ mediante el metodo de momentos y el EMV.
     #
@@ -51,6 +52,7 @@ for (i in 1:1000) {
         sqrt(2/mean(X))
     }
     
+    # Save estimator values
     fme = c(fme, first_m_e(X))
     sme = c(sme, second_m_e(X))
     
@@ -59,14 +61,12 @@ for (i in 1:1000) {
     # 3) Proponer un estimador de la función de distribucion acumulada
     # distinto al obtenido en a
     #
-    
-    
     #  Estimate lambda by means of Linear regression.
     T = X
     T = sort(T)
     X_cum = ecdf(T)
-    X_cum = X_cum(T)[1:99]
-    T= T[1:99]
+    X_cum = X_cum(T)[1:(n-1)]
+    T= T[1:(n-1)]
     X_linear = log(1-X_cum)
     model_linear = lm(formula=X_linear~T - 1)
     lse = c(lse, - model_linear$coefficients[1])
