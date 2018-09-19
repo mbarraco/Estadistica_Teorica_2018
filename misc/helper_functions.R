@@ -23,12 +23,13 @@ sample_estimator = function(distribution_func,
     #       of the distribution sample sizes defined in <distribution_n_values>
     
     estimator_samples = matrix(NA, 
-                               nrow=N_estimator,              
-                               ncol=length(sample_sizes),         
+                               nrow=estimator_n_values,     
+                               ncol=length(sample_sizes),
                                byrow = TRUE)   
     for (i in 1:length(distribution_n_values)) {
         n = distribution_n_values[i]
         estimator = c()
+        set.seed(1)
         for (repetition in 1:estimator_n_values) {
             sample = distribution_func(n)
             estimator = c(estimator, estimator_func(sample))
