@@ -22,7 +22,7 @@ sample_estimator = function(distribution_func,
     #       matrix: a matrix whose columns are the samples of the estimator for each
     #       of the distribution sample sizes defined in <distribution_n_values>
     
-    estimator_samples = matrix(NA, 
+    estimator_samples = matrix(NA,
                                nrow=estimator_n_values,     
                                ncol=length(sample_sizes),
                                byrow = TRUE)   
