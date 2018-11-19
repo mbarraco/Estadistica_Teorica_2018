@@ -21,8 +21,10 @@ s = np.sqrt(s2)
 t = {
      '.95': 2.0639
  }
-interval95= [sample_mean - t['.95'] * s / np.sqrt(len(sample)), 
-             sample_mean + t['.95'] * s / np.sqrt(len(sample))]
+interval95= (sample_mean - t['.95'] * s / np.sqrt(len(sample)), 
+             sample_mean + t['.95'] * s / np.sqrt(len(sample)))
 
 # Check the correctness
-st.t.interval(0.95, len(sample)-1, loc=np.mean(sample), scale=st.sem(sample))
+interval95_builtin = st.t.interval(0.95, len(sample)-1, loc=np.mean(sample), scale=st.sem(sample))
+
+
