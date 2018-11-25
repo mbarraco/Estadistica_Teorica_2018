@@ -21,12 +21,12 @@ rv = st.chi2(*shape_parameters)
 plt.close('all')
 
 fig, axs = plt.subplots(3, 1)
-lambdas = [1, 5, 10]
+lambdas = [1, 50, 100]
 plot_index = 0
 for l in lambdas:
-    dist = st.poisson(l)
+    rv = st.poisson(l)
     x = np.arange(-1, 30)
-    axs[plot_index].plot(x, dist.pmf(x), lw=.5, color='black',
+    axs[plot_index].plot(x, rv.pmf(x), lw=.5, color='black',
              label=r'$\mu=%i$' % l, linestyle='steps-mid')
 
     plt.xlabel('$x$')
